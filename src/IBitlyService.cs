@@ -1,4 +1,4 @@
-
+using Bitly.Models;
 
 namespace Bitly
 {
@@ -6,7 +6,7 @@ namespace Bitly
     {
       public string GetRandomUrlEndpoint();
 
-      public string AddUrl(string longUrl);
+      public void AddUrl(Url url);
 
       public string GetRedirectUrl(string endpoint);
 

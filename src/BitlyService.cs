@@ -31,22 +31,18 @@ namespace Bitly
         return randomUrl;
       }
 
-      public string AddUrl(string longUrl){
+      public void AddUrl(Url url){
       
          string shortEndpoint = GetRandomUrlEndpoint();
          while(_context.Urls.Any(o => o.ShortUrl == shortEndpoint)){
             shortEndpoint = GetRandomUrlEndpoint();
          }
 
-         Url url = new Url();
-         url.LongUrl = longUrl;
          url.ShortUrl = shortEndpoint;
          url.GeneratedAt = System.DateTime.Now;
 
           _context.Urls.Add(url);
           _context.SaveChanges();
-
-          return GetRedirectUrl(shortEndpoint);
       }
 
       public string GetRedirectUrl(string endpoint){
@@ -55,10 +51,13 @@ namespace Bitly
 
       public string GetLongUrl(string shortEndpoint){
         try{
+          Console.WriteLine("In try");
            Url url = _context.Urls.Where(u => u.ShortUrl == shortEndpoint).Single();
-           return url.LongUrl;
+           Console.WriteLine("after context");
+            return url.LongUrl;
         }
-        catch{
+        catch (Exception e){
+          // Console.WriteLine(e);
            return null;
         }
 

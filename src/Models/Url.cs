@@ -9,7 +9,7 @@ namespace Bitly.Models
     {
 
         public int Id { get; set; }
-
+        
         // [Required(ErrorMessage = "Please enter a URL.")]
         // [RegularExpression(@"((http|https|ftp)://)?([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?", ErrorMessage = "Please enter a valid URL.")]
         public string LongUrl { get; set; }
@@ -17,7 +17,5 @@ namespace Bitly.Models
         // public int Hits { get; set; }
         public DateTime GeneratedAt { get; set; }
         // public DateTime ExpAt { get; set; }
-        
-        
     }
 }

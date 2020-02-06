@@ -28,10 +28,11 @@ namespace Bitly
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<UrlDbContext>(opts =>
-                opts.UseNpgsql(Configuration["ConnectionStrings:Booking"]));
+                opts.UseNpgsql(Configuration["ConnectionStrings:Bitly"]));
 
             services.AddControllers();
             services.AddScoped<IBitlyService, BitlyService>();
+            // services.AddHttpClient();
             
         }
 

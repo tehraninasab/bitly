@@ -14,7 +14,7 @@ namespace tests
             Regex regex = new Regex(@"^[A-Za-z]{8}$");
             Boolean match = regex.IsMatch(service.GetRandomUrlEndpoint());
 
-            Assert.Equal(match, true);
+            Assert.True(match);
         }
 
         [Fact]
@@ -26,8 +26,8 @@ namespace tests
             Boolean lowerMatch = lowerLengthRegex.IsMatch(service.GetRandomUrlEndpoint());
             Boolean higherMatch = higherLengthRegex.IsMatch(service.GetRandomUrlEndpoint());
 
-            Assert.Equal(lowerMatch, false);
-            Assert.Equal(higherMatch, false);
+            Assert.False(lowerMatch);
+            Assert.False(higherMatch);
         }
 
         
