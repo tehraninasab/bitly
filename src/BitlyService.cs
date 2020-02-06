@@ -57,7 +57,7 @@ namespace Bitly
             return url.LongUrl;
         }
         catch (Exception e){
-          // Console.WriteLine(e);
+          Console.WriteLine(e);
            return null;
         }
 

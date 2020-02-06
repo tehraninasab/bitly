@@ -3,6 +3,7 @@ using Bitly.Models;
 using System.Text.RegularExpressions;
 using System;
 
+
 namespace Bitly.Controllers
 {
 
@@ -18,43 +19,32 @@ namespace Bitly.Controllers
         }
         // GET api/values
         [HttpGet]
-        [Route("bitly/{shortUrl}")]
+        [Route("redirect/{shortUrl}")]
         public IActionResult Get(string shortUrl){
-            // string shortUrl = Request.Path;
-            Console.WriteLine("Url: " + shortUrl);
-            Console.WriteLine(_service);
             string url = _service.GetLongUrl(shortUrl);
-            Console.WriteLine("longUrl:"+url);
-           if(url == null){
+            if(url == null){
                return StatusCode(404);
-           }
-
+            }
             return Redirect(url);
         } 
 
         [HttpPost]
         [Route("bitly")]
         public IActionResult PostLongUrl(Url url){
-                    
             var regex  = new Regex(@"((http|https|ftp)://)?([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?");
             if(!regex.IsMatch(url.LongUrl)){
                 return StatusCode(400);
             }
-
             _service.AddUrl(url);
             
-          
-            return Ok(url);
-            
-            
+            PostResponse response = new PostResponse(url.LongUrl, _service.GetRedirectUrl(url.ShortUrl));
+            return Ok(response);
         }
     }
 
     public class PostResponse{
-        string LongUrl { get; set; }
-        string ShortUrl { get; set; }
-        public PostResponse(){}
-
+        public string LongUrl { get; set; }
+        public string ShortUrl { get; set; }
         public PostResponse(string longUrl, string shortUrl){
             LongUrl = longUrl;
             ShortUrl = shortUrl;
