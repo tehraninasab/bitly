@@ -20,3 +20,4 @@ Migrations/
 TestFiles/
 postdata.json
 redirectdata.json
+.vscode
