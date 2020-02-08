@@ -13,6 +13,10 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
     <PackageReference Include="coverlet.collector" Version="1.0.1" />
     <ProjectReference Include = "../src/bitly.csproj"/>
+    <None Update="all_data.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="TestFiles/postdata.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="TestFiles/redirectdata.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
