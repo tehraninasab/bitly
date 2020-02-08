@@ -4,10 +4,18 @@
 # Migration folder is created by EF Core while migrating data base.        
 Migrations/                                                                
   
-# Build results                                                            
-[Dd]ebug/                                                                  
-[Bb]in/                                                                    
-[Oo]bj/                                                                    
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/                                       
 
 #Temporary and log files                                                   
 *.tmp                                                                      
@@ -15,9 +23,16 @@ Migrations/
 *.log
 *.swp
 *.swo
+*.swp
+*.*~
+
 
 #Test unit data
 TestFiles/
 postdata.json
 redirectdata.json
+.vscode
+*.dll
+
+# Visual Studio Code
 .vscode

@@ -13,9 +13,9 @@
 
 ## Running the tests
 
-### You should use a json file that contains unit tests like:
+#### You should use a json file that contains unit tests like:
  
-```json
+```
     {
         "ValidData" : [ 
             ["https://a.valid.url]
@@ -26,15 +26,15 @@
         ]
     }
 ```
-
-### For post method tests
-### Or for redirect tests:
+#### Or for double parameter tests use:
 
 ```json
     [
         ["shortEndpoint", "longUrl"], 
     ]
 ```
+#### More imformation about unit testing using json file on:
+* https://andrewlock.net/creating-a-custom-xunit-theory-test-dataattribute-to-load-data-from-json-files/
 
 ## Client side requests
 ```

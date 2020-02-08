@@ -12,5 +12,7 @@ namespace Bitly
 
       public string GetLongUrl(string shortEndpoint);
 
+      public bool CheckValidUrl(string url);
+
     }
 }

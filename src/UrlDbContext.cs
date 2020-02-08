@@ -8,8 +8,6 @@ namespace Bitly
     {
 
         public DbSet<Url> Urls { get; set; }
-    
-
 
         public UrlDbContext(DbContextOptions<UrlDbContext> options) : base(options) {}
 
@@ -23,7 +21,6 @@ namespace Bitly
             builder.Entity<Url>().Property(p => p.LongUrl).IsRequired();
             builder.Entity<Url>().Property(p => p.ShortUrl).IsRequired().HasMaxLength(8).IsFixedLength();
             builder.Entity<Url>().Property(p => p.GeneratedAt).IsRequired();
-      
         }
 
     }
